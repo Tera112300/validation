@@ -1,0 +1,26 @@
+form {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+button {
+    width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 0.8rem;
+    }
+    form {
+        margin: 20px auto;
+    }
+    input.form-control {
+        font-size: 0.8rem;
+    }
+    .btn {
+        font-size: 0.8rem;
+    }
+}
