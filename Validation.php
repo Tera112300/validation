@@ -37,7 +37,6 @@ class Validation
         $_SESSION['s_valid'] = $this->errors;
 
         $_SESSION['old'] = $this->old;
-
         $_SESSION['s_valid_decision'] = true;
         if ($this->errors == []) {
             //echo "バリデーション成功";
@@ -98,7 +97,7 @@ class Validation
                 $this->old[$input_val][0] = $_FILES[$input_val]['name'];
                 $this->old[$input_val][1] = $_FILES[$input_val]['tmp_name'];
             } else {
-                $this->old[$input_val][0] = $input_box;
+                $this->old[$input_val][0] = htmlspecialchars($input_box, ENT_QUOTES, "UTF-8");;
             }
         }
 
