@@ -25,7 +25,7 @@ class Validation
     //バリデーションのルール設定
     public function __construct($name = [])
     {
-        session_start();
+        //session_start();
         $this->rule_set = $name;
         return $this->rule_set;
     }

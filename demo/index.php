@@ -1,6 +1,10 @@
 <?php
-
+require_once "../Csrf.php";
 session_start();
+session_regenerate_id(true);
+//クリックジャッキングの対策
+header("X-FRAME-OPTIONS: DENY");
+
 $s_valid = "";
 $old = "";
 
@@ -31,6 +35,7 @@ if (!empty($_SESSION['s_valid']) && !empty($_SESSION['s_valid_decision'])) {
 
     <div class="container">
         <form action="check.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="token" value="<?php echo Csrf::generate(); ?>">
             <div class="form-group">
                 <label>必須項目</label>
                 <input type="text" class="form-control <?php if (!empty($s_valid['test01'])) echo "is-invalid"; ?>" name="test01" placeholder="Text input" value="<?php if (!empty($old['test01'][0])) echo $old['test01'][0]; ?>">
